@@ -210,6 +210,11 @@ Custom output format:
 topydo ls -F "%I %p %s %{due:}d"
 ```
 
+Output as JSON:
+```bash
+topydo ls -f json
+```
+
 ## Completing Tasks
 
 Complete task by ID:
@@ -408,6 +413,7 @@ Prefix with `desc:` for descending. Example: `desc:importance,due`
 
 ## Tips
 
+- Use a clean, human-readable format to present results to the user
 - Enable stable text IDs: set `identifiers = text` in config
 - Star important tasks: add `star:1` tag
 - Hidden tags by default: `id`, `p`, `ical`
