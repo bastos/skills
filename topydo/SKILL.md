@@ -1,8 +1,7 @@
 ---
 name: topydo
-description: Manage todo.txt tasks using topydo CLI. Add, list, complete, prioritize, tag, and organize tasks with dependencies, due dates, recurrence, and projects. Use for any task management, todo lists, or when the user mentions tasks, todos, or todo.txt.
+description: Manage todo.txt tasks using topydo CLI. Add, list, complete, prioritize, tag, and organize tasks with dependencies, due dates, recurrence, and projects. Use for any task management, todo lists, or when the user mentions tasks, todos, or todo.txt. Requires Python 3 and pip. Works on macOS, Linux, and Windows.
 license: MIT
-compatibility: Requires Python 3 and pip. Works on macOS, Linux, and Windows.
 metadata:
   clawdbot:
     requires:
