@@ -2,17 +2,8 @@
 name: obsidian-daily
 description: Manage Obsidian Daily Notes via obsidian-cli. Create and open daily notes, append entries (journals, logs, tasks, links), read past notes by date, and search vault content. Handles relative dates like "yesterday", "last Friday", "3 days ago". Requires obsidian-cli installed via Homebrew (Mac/Linux) or Scoop (Windows).
 metadata:
-  clawdbot:
-    requires:
-      bins:
-        - obsidian-cli
-    install:
-      - id: brew
-        kind: brew
-        formula: "yakitrak/yakitrak/obsidian-cli"
-        bins:
-          - obsidian-cli
-        label: "Install obsidian-cli (brew)"
+  author: github.com/bastos
+  version: "2.0"
 ---
 
 # Obsidian Daily Notes

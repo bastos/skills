@@ -1,6 +1,9 @@
 ---
 name: tmuxinator
 description: Use when creating, editing, or debugging tmuxinator project configurations, setting up complex tmux session layouts, or automating development environment startup with multiple windows and panes
+metadata:
+  author: github.com/bastos
+  version: "2.0"
 ---
 
 # Tmuxinator
