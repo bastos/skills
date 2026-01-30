@@ -40,7 +40,7 @@ Proxmox VE is a server virtualization platform built on Debian. It manages KVM v
 
 ```bash
 # Create a VM with ID 100
-qm create 100 --name my-vm --memory 2048 --cores 2 --socket 1 \
+qm create 100 --name my-vm --memory 2048 --cores 2 --sockets 1 \
   --net0 virtio,bridge=vmbr0 --ostype l26
 
 # Create with SCSI disk on local-lvm storage (32GB)
