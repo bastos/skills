@@ -1,0 +1,43 @@
+name: Release skills
+
+on:
+  push:
+    tags:
+      - '*.*.*'
+
+concurrency:
+  group: release-skills
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Package skills
+        shell: bash
+        run: |
+          set -euo pipefail
+          version="${GITHUB_REF_NAME}"
+          mkdir -p dist
+          shopt -s nullglob
+          for skill_dir in */SKILL.md; do
+            skill_dir=${skill_dir%/SKILL.md}
+            skill_name=$(basename "$skill_dir")
+            zip -r "dist/${skill_name}-${version}.zip" "$skill_dir" -x '*.DS_Store' -x '__MACOSX/*'
+          done
+
+      - name: Create release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: ${{ github.ref_name }}
+          target_commitish: ${{ github.sha }}
+          files: dist/*.zip
