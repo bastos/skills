@@ -1,6 +1,7 @@
 ---
 name: proxmox-admin
 description: Use when administering Proxmox VE hosts, creating and managing VMs with qm, managing LXC containers with pct, configuring storage, networking, clusters, and automating provisioning tasks via the Proxmox CLI.
+license: MIT
 metadata:
   author: github.com/bastos
   version: "1.0"
