@@ -4,7 +4,7 @@ description: Format commit messages using the Conventional Commits specification
 license: MIT
 metadata:
   author: github.com/bastos
-  version: "2.0"
+  version: "2.1"
 ---
 
 # Conventional Commits
@@ -56,7 +56,8 @@ docs(readme): update installation instructions
 - Use imperative mood ("add feature" not "added feature" or "adds feature")
 - Don't capitalize the first letter
 - No period at the end
-- Keep it concise (typically 50-72 characters)
+- Hard limit: 72 characters (including type and scope)
+- Recommended: 50 characters or fewer for better readability
 
 ## Body
 
