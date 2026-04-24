@@ -1,6 +1,6 @@
 ---
 name: mikrotik-routeros
-description: Configure and automate MikroTik RouterOS routers through the terminal, command line interface, .rsc imports, /system script repository, Scheduler, Netwatch, firewall, NAT, DHCP, DNS, bridge, VLAN, routing, VPN, device-mode, backup/export, and RouterOS scripting. Use this skill whenever the user mentions MikroTik, Mikrotik, RouterOS, WinBox terminal, router CLI, router scripts, .rsc files, or configuring MikroTik services from the command line.
+description: Configures and automates MikroTik RouterOS routers through the terminal, command line interface, .rsc imports, /system script repository, Scheduler, Netwatch, firewall, NAT, DHCP, DNS, bridge, VLAN, routing, VPN, device-mode, backup/export, and RouterOS scripting. Use this skill whenever the user mentions MikroTik, Mikrotik, RouterOS, WinBox terminal, router CLI, router scripts, .rsc files, or configuring MikroTik services from the command line.
 license: MIT
 metadata:
   author: github.com/bastos
