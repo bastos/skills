@@ -1,6 +1,6 @@
 ---
 name: topydo
-description: Manage todo.txt tasks using topydo CLI. Add, list, complete, prioritize, tag, and organize tasks with dependencies, due dates, recurrence, and projects. Use for any task management, todo lists, or when the user mentions tasks, todos, or todo.txt. Requires Python 3 and pip. Works on macOS, Linux, and Windows.
+description: Manages todo.txt tasks using topydo CLI. Adds, lists, completes, prioritizes, tags, and organizes tasks with dependencies, due dates, recurrence, and projects. Use for any task management, todo lists, or when the user mentions tasks, todos, or todo.txt. Requires Python 3 and pip. Works on macOS, Linux, and Windows.
 license: MIT
 metadata:
   author: github.com/bastos
@@ -51,10 +51,15 @@ sudo apt install python3-pip && pip3 install topydo
 
 ## Configuration
 
-Config file locations (in order of precedence):
-- `topydo.conf` or `.topydo` (current directory)
-- `~/.topydo` or `~/.config/topydo/config`
+Config file locations are loaded in this order; later files override earlier
+values:
 - `/etc/topydo.conf`
+- `~/.config/topydo/config`
+- `~/.topydo`
+- `.topydo` (current directory)
+- `topydo.conf` (current directory)
+- `topydo.ini` (current directory)
+- A configuration file passed with `-c`
 
 Example `~/.topydo`:
 ```ini
