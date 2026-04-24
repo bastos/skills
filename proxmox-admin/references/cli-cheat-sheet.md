@@ -26,7 +26,7 @@ qm rollback <vmid> <name>            # Rollback to snapshot
 qm delsnapshot <vmid> <name>         # Delete snapshot
 qm listsnapshot <vmid>               # List snapshots
 qm disk resize <vmid> <disk> <size>  # Resize a disk
-qm importdisk <vmid> <img> <storage> # Import disk image
+qm disk import <vmid> <img> <storage> # Import disk image
 qm monitor <vmid>                    # QEMU monitor console
 qm agent <vmid> <command>            # Guest agent commands
 qm unlock <vmid>                     # Remove lock
@@ -146,7 +146,9 @@ journalctl -u pvedaemon              # View PVE daemon logs
 
 ## Source References
 
-- [qm manual](https://pve.proxmox.com/pve-docs-6/qm.1.html)
-- [Proxmox CLI Guide (dev.to)](https://dev.to/sebos/how-to-build-and-manage-virtual-machines-using-proxmox-cli-a-step-by-step-guide-5926)
-- [Top 10 Proxmox CLI Commands](https://www.nakivo.com/blog/top-10-proxmox-cli-commands/)
-- [Proxmox Cheat Sheet (Stordis)](https://stordis.com/proxmox-cheat-sheet/)
+- [qm manual](https://pve.proxmox.com/pve-docs/qm.1.html)
+- [pct manual](https://pve.proxmox.com/pve-docs/pct.1.html)
+- [pveam manual](https://pve.proxmox.com/pve-docs/pveam.1.html)
+- [pvesm manual](https://pve.proxmox.com/pve-docs/pvesm.1.html)
+- [pvecm manual](https://pve.proxmox.com/pve-docs/pvecm.1.html)
+- [Proxmox firewall](https://pve.proxmox.com/pve-docs/chapter-pve-firewall.html)

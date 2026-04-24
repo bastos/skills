@@ -1,6 +1,6 @@
 ---
 name: proxmox-admin
-description: Use when administering Proxmox VE hosts, creating and managing VMs with qm, managing LXC containers with pct, configuring storage, networking, clusters, and automating provisioning tasks via the Proxmox CLI.
+description: Administers Proxmox VE hosts, creates and manages VMs with qm, manages LXC containers with pct, configures storage, networking, clusters, and automates provisioning tasks via the Proxmox CLI.
 license: MIT
 metadata:
   author: github.com/bastos
@@ -316,12 +316,17 @@ pvecm expected 1    # force quorum (dangerous, single-node recovery only)
 ## Firewall
 
 ```bash
-# Enable/disable firewall at datacenter level
+# Start or stop the node firewall service
 pve-firewall start
 pve-firewall stop
 pve-firewall status
 
-# Manage rules via config files
+# Enable datacenter firewall in /etc/pve/firewall/cluster.fw
+# [OPTIONS]
+# enable: 1
+#
+# Manage rules via config files. Add remote management allow rules before
+# enabling restrictive policies.
 # Datacenter: /etc/pve/firewall/cluster.fw
 # Node:       /etc/pve/nodes/<node>/host.fw
 # VM/CT:      /etc/pve/firewall/<vmid>.fw
@@ -385,7 +390,7 @@ done
 wget https://cloud-images.ubuntu.com/jammy/current/jammy-server-cloudimg-amd64.img
 
 # Import to a VM
-qm importdisk 100 jammy-server-cloudimg-amd64.img local-lvm
+qm disk import 100 jammy-server-cloudimg-amd64.img local-lvm
 
 # Attach the imported disk
 qm set 100 --scsi0 local-lvm:vm-100-disk-0
@@ -397,13 +402,13 @@ qm set 100 --boot order=scsi0
 | Problem | Solution |
 |---------|----------|
 | VM won't start | Check `qm config <vmid>`, verify storage exists with `pvesm status` |
-| "TASK ERROR: can't lock file" | `rm /run/lock/qemu-server/lock-<vmid>.conf` (verify VM is not running first) |
+| "TASK ERROR: can't lock file" | Check running tasks first; if the task is gone, use `qm unlock <vmid>` or `pct unlock <ctid>` |
 | Container has no network | Check bridge exists: `brctl show`; verify firewall rules |
 | Disk full on storage | `pvesm status` to check usage; `lvs` for LVM thin pools |
 | Cluster quorum lost | `pvecm expected 1` on surviving node (single-node recovery only) |
 | Migration fails | Ensure same CPU type or use `--online` with live migration; check network between nodes |
 | Backup fails with lock error | `qm unlock <vmid>` or `pct unlock <ctid>` |
-| Slow disk I/O in VM | Use `virtio-scsi-pci` controller with `iothread=1` and `discard=on` |
+| Slow disk I/O in VM | Use `--scsihw virtio-scsi-single` and disk options like `,iothread=1,discard=on` |
 | Guest agent not responding | Install `qemu-guest-agent` in the VM and enable: `qm set <vmid> --agent 1` |
 
 ## Useful Paths
