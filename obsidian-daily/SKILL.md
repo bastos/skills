@@ -1,6 +1,6 @@
 ---
 name: obsidian-daily
-description: Manage Obsidian Daily Notes via obsidian-cli. Create and open daily notes, append entries (journals, logs, tasks, links), read past notes by date, and search vault content. Handles relative dates like "yesterday", "last Friday", "3 days ago". Requires obsidian-cli installed via Homebrew (Mac/Linux) or Scoop (Windows).
+description: Manages Obsidian Daily Notes via the official Obsidian CLI. Creates and opens daily notes, appends entries (journals, logs, tasks, links), reads daily notes and vault files, searches vault content, and handles relative dates like "yesterday", "last Friday", and "3 days ago". Requires Obsidian 1.12+ with Command line interface enabled.
 metadata:
   author: github.com/bastos
   version: "2.0"
@@ -8,25 +8,27 @@ metadata:
 
 # Obsidian Daily Notes
 
-Interact with Obsidian Daily Notes: create notes, append entries, read by date, and search content.
+Interact with Obsidian Daily Notes through the official `obsidian` command: create
+or open today's note, append entries, read notes, and search vault content.
 
 ## Setup
 
-Check if a default vault is configured:
+Check that the official CLI is available:
 
 ```bash
-obsidian-cli print-default --path-only 2>/dev/null && echo "OK" || echo "NOT_SET"
+obsidian version
 ```
 
-If `NOT_SET`, ask the user:
-1. **Vault name** (required)
-2. **Daily notes folder** (default: vault root, common: `Daily Notes`, `Journal`, `daily`)
-3. **Date format** (default: `YYYY-MM-DD`)
+If the command is unavailable, ask the user to enable Obsidian's CLI:
+1. Install or update to Obsidian 1.12 or newer.
+2. Open **Settings > General**.
+3. Enable **Command line interface** and follow the registration prompt.
 
-Configure the vault:
+Target a vault explicitly when needed by placing `vault=<name-or-id>` before the
+command:
 
 ```bash
-obsidian-cli set-default "VAULT_NAME"
+obsidian vault="Work" daily
 ```
 
 **Obsidian Daily Notes plugin defaults:**
@@ -48,7 +50,7 @@ Cross-platform relative dates (GNU first, BSD fallback):
 |-----------|---------|
 | Today | `date +%Y-%m-%d` |
 | Yesterday | `date -d yesterday +%Y-%m-%d 2>/dev/null \|\| date -v-1d +%Y-%m-%d` |
-| Last Friday | `date -d "last friday" +%Y-%m-%d 2>/dev/null \|\| date -v-friday +%Y-%m-%d` |
+| Last Friday | `date -d "last friday" +%Y-%m-%d 2>/dev/null \|\| date -v-1w -v+fri +%Y-%m-%d` |
 | 3 days ago | `date -d "3 days ago" +%Y-%m-%d 2>/dev/null \|\| date -v-3d +%Y-%m-%d` |
 | Next Monday | `date -d "next monday" +%Y-%m-%d 2>/dev/null \|\| date -v+monday +%Y-%m-%d` |
 
@@ -57,7 +59,7 @@ Cross-platform relative dates (GNU first, BSD fallback):
 ### Open/Create Today's Note
 
 ```bash
-obsidian-cli daily
+obsidian daily
 ```
 
 Opens today's daily note in Obsidian, creating it from template if it doesn't exist.
@@ -65,13 +67,13 @@ Opens today's daily note in Obsidian, creating it from template if it doesn't ex
 ### Append Entry
 
 ```bash
-obsidian-cli daily && obsidian-cli create "$(date +%Y-%m-%d).md" --content "$(printf '\n%s' "ENTRY_TEXT")" --append
+obsidian daily:append content="ENTRY_TEXT"
 ```
 
-With custom folder:
+Append without adding a newline:
 
 ```bash
-obsidian-cli daily && obsidian-cli create "Daily Notes/$(date +%Y-%m-%d).md" --content "$(printf '\n%s' "ENTRY_TEXT")" --append
+obsidian daily:append content="ENTRY_TEXT" inline
 ```
 
 ### Read Note
@@ -79,41 +81,41 @@ obsidian-cli daily && obsidian-cli create "Daily Notes/$(date +%Y-%m-%d).md" --c
 Today:
 
 ```bash
-obsidian-cli print "$(date +%Y-%m-%d).md"
+obsidian daily:read
 ```
 
-Specific date:
+Specific date, using the vault's configured daily-note folder and date format:
 
 ```bash
-obsidian-cli print "2025-01-10.md"
+obsidian read path="Daily Notes/2025-01-10.md"
 ```
 
 Relative date (yesterday):
 
 ```bash
-obsidian-cli print "$(date -d yesterday +%Y-%m-%d 2>/dev/null || date -v-1d +%Y-%m-%d).md"
+obsidian read path="Daily Notes/$(date -d yesterday +%Y-%m-%d 2>/dev/null || date -v-1d +%Y-%m-%d).md"
 ```
 
 ### Search Content
 
 ```bash
-obsidian-cli search-content "TERM"
+obsidian search query="TERM"
 ```
 
 ### Search Notes
 
-Interactive fuzzy finder:
+Machine-readable search:
 
 ```bash
-obsidian-cli search
+obsidian search query="TERM" format=json
 ```
 
 ### Specific Vault
 
-Add `--vault "NAME"` to any command:
+Put `vault="NAME"` before the command:
 
 ```bash
-obsidian-cli print "2025-01-10.md" --vault "Work"
+obsidian vault="Work" read path="Daily Notes/2025-01-10.md"
 ```
 
 ## Example Output
@@ -129,30 +131,30 @@ obsidian-cli print "2025-01-10.md" --vault "Work"
 
 **Journal entry:**
 ```bash
-obsidian-cli daily && obsidian-cli create "$(date +%Y-%m-%d).md" --content "$(printf '\n%s' "- Went to the doctor")" --append
+obsidian daily:append content="- Went to the doctor"
 ```
 
 **Task:**
 ```bash
-obsidian-cli daily && obsidian-cli create "$(date +%Y-%m-%d).md" --content "$(printf '\n%s' "- [ ] Buy groceries")" --append
+obsidian daily:append content="- [ ] Buy groceries"
 ```
 
 **Link:**
 ```bash
-obsidian-cli daily && obsidian-cli create "$(date +%Y-%m-%d).md" --content "$(printf '\n%s' "- https://github.com/anthropics/skills")" --append
+obsidian daily:append content="- https://github.com/anthropics/skills"
 ```
 
 **Timestamped log:**
 ```bash
-obsidian-cli daily && obsidian-cli create "$(date +%Y-%m-%d).md" --content "$(printf '\n%s' "- $(date +%H:%M) This is a log line")" --append
+obsidian daily:append content="- $(date +%H:%M) This is a log line"
 ```
 
 **Read last Friday:**
 ```bash
-obsidian-cli print "$(date -d 'last friday' +%Y-%m-%d 2>/dev/null || date -v-friday +%Y-%m-%d).md"
+obsidian read path="Daily Notes/$(date -d 'last friday' +%Y-%m-%d 2>/dev/null || date -v-1w -v+fri +%Y-%m-%d).md"
 ```
 
 **Search for "meeting":**
 ```bash
-obsidian-cli search-content "meeting"
+obsidian search query="meeting"
 ```
