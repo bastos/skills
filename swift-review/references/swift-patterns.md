@@ -13,9 +13,13 @@ Prefer `struct` and `enum` over `class` unless you need:
 - Objective-C interop
 
 Value types give you:
-- Thread safety (copies are independent)
-- Predictable behavior (no spooky action at a distance)
+- Better local reasoning and fewer accidental shared mutations
+- Predictable copy semantics
 - Compiler optimizations (stack allocation, copy-on-write)
+
+Value types do not guarantee thread safety on their own; shared mutable storage,
+copy-on-write collections, and reference-typed members still require normal
+concurrency discipline.
 
 ```swift
 // ✓ Value type — no identity needed
@@ -74,8 +78,9 @@ let regex = try! NSRegularExpression(pattern: "^[a-z]+$")
 
 Only permitted for:
 - `@IBOutlet` properties (lifecycle-managed by storyboard)
-- Properties set in `viewDidLoad` or similar lifecycle methods
 - Test fixtures initialized in `setUp()`
+- Rare documented lifecycle invariants where the value is valid before every
+  possible access. Prefer initializer injection or normal optionals.
 
 ```swift
 class ViewController: UIViewController {
@@ -320,7 +325,8 @@ and significantly improves readability.
 
 ## Switch Exhaustiveness
 
-Let the compiler verify exhaustiveness — avoid `default` when all cases are known:
+Let the compiler verify exhaustiveness for local or frozen enums — avoid
+`default` when all cases are known:
 
 ```swift
 // ✓ Compiler catches new cases
@@ -339,6 +345,21 @@ case .loading:
     showSpinner()
 default:
     break
+}
+```
+
+For non-frozen enums imported from Apple SDKs or other resilient modules, handle
+known cases and add `@unknown default` so the compiler warns when new cases are
+introduced:
+
+```swift
+switch style {
+case .light:
+    configureLight()
+case .dark:
+    configureDark()
+@unknown default:
+    configureFallback()
 }
 ```
 

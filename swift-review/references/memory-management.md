@@ -127,15 +127,18 @@ publisher
 
 ## Memory Pressure and Caching
 
-### Use NSCache, Not Dictionaries
+### Use NSCache for Discardable Resource Caches
 
-`NSCache` automatically evicts entries under memory pressure. Raw dictionaries don't:
+`NSCache` can evict entries under memory pressure and supports count/cost limits,
+which makes it a good fit for transient, recomputable resources. Its limits are
+not strict guarantees, and raw dictionaries are still appropriate for
+deterministic maps or non-discardable data when they are explicitly bounded:
 
 ```swift
-// ✗ Never freed under memory pressure
+// OK for deterministic, bounded maps that must retain their values
 var imageCache: [URL: UIImage] = [:]
 
-// ✓ Auto-evicts when system needs memory
+// Good for discardable image data
 let imageCache = NSCache<NSURL, UIImage>()
 imageCache.countLimit = 100
 imageCache.totalCostLimit = 50 * 1024 * 1024  // 50 MB

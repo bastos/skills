@@ -1,7 +1,7 @@
 ---
 name: swift-review
 description: >
-  Review Swift/Xcode codebases, pull requests, local changes, or individual files against
+  Reviews Swift/Xcode codebases, pull requests, local changes, or individual files against
   Swift best practices including Google's Swift Style Guide, Apple's API Design Guidelines,
   build performance, memory management, and testing standards. Use this skill whenever the
   user asks to review Swift code, audit a Swift PR, check Swift style, review an Xcode
@@ -113,7 +113,8 @@ Key checks:
 - `weak` preferred over `unowned` unless lifetime is guaranteed
 - Delegates declared as `weak var`
 - Large resources freed in `deinit` or on memory warnings
-- Caches use `NSCache` (auto-evicts on memory pressure) not raw dictionaries
+- Discardable resource caches use `NSCache` with count/cost limits; deterministic
+  maps or non-discardable data may use bounded dictionaries
 - Autoreleasepool used in tight loops creating many temporary objects
 - No strong reference chains between parent and child objects
 - Image and data caches have size limits

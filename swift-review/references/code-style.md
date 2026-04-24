@@ -190,19 +190,28 @@ default:
 
 ### Trailing Closures
 - Single closure as final argument → trailing syntax
-- Multiple closure arguments → all inside parentheses, all labeled
+- Multiple trailing closures are valid Swift; use them when they improve
+  readability or match project/SwiftUI style, otherwise keep all closures inside
+  parentheses and labeled
 - No empty `()` when function called with only a trailing closure
 
 ```swift
 // ✓ Single closure — use trailing syntax
 items.map { $0.name }
 
-// ✓ Multiple closures — all labeled, inside parens
+// ✓ Multiple closures — labeled inside parens
 UIView.animate(
     withDuration: 0.3,
     animations: { view.alpha = 0 },
     completion: { _ in view.removeFromSuperview() }
 )
+
+// ✓ Multiple trailing closures — idiomatic in SwiftUI-style APIs
+UIView.animate(withDuration: 0.3) {
+    view.alpha = 0
+} completion: { _ in
+    view.removeFromSuperview()
+}
 ```
 
 ## Type Shorthand
