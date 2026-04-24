@@ -1,6 +1,6 @@
 ---
 name: conventional-commits
-description: Format commit messages using the Conventional Commits specification. Use when creating commits, writing commit messages, or when the user mentions commits, git commits, or commit messages. Ensures commits follow the standard format for automated tooling, changelog generation, and semantic versioning.
+description: Formats commit messages using the Conventional Commits specification. Use when creating commits, writing commit messages, or when the user mentions commits, git commits, or commit messages. Ensures commits follow the standard format for automated tooling, changelog generation, and semantic versioning.
 license: MIT
 metadata:
   author: github.com/bastos
@@ -23,7 +23,10 @@ Format all commit messages according to the [Conventional Commits](https://www.c
 
 ## Commit Types
 
-### Required Types
+### SemVer-Mapped Core Types
+
+Use these types when they match the change; they are the only types with
+implicit SemVer meaning in the specification:
 
 - **`feat:`** - A new feature (correlates with MINOR in Semantic Versioning)
 - **`fix:`** - A bug fix (correlates with PATCH in Semantic Versioning)
@@ -53,10 +56,12 @@ docs(readme): update installation instructions
 ## Description
 
 - Must immediately follow the colon and space after the type/scope
+
+Style recommendations:
 - Use imperative mood ("add feature" not "added feature" or "adds feature")
 - Don't capitalize the first letter
 - No period at the end
-- Hard limit: 72 characters (including type and scope)
+- Prefer 72 characters or fewer (including type and scope)
 - Recommended: 50 characters or fewer for better readability
 
 ## Body
@@ -84,6 +89,9 @@ feat: allow provided config object to extend other configs
 
 BREAKING CHANGE: `extends` key in config file is now used for extending other config files
 ```
+
+The specification also treats `BREAKING-CHANGE:` as a synonymous footer token;
+prefer `BREAKING CHANGE:` unless a project convention says otherwise.
 
 ### 3. Both methods
 
