@@ -1,6 +1,6 @@
 ---
 name: tmuxinator
-description: Use when creating, editing, or debugging tmuxinator project configurations, setting up complex tmux session layouts, or automating development environment startup with multiple windows and panes
+description: Helps create, edit, and debug tmuxinator project configurations, set up complex tmux session layouts, and automate development environment startup with multiple windows and panes.
 metadata:
   author: github.com/bastos
   version: "2.0"
@@ -410,10 +410,10 @@ tmuxinator debug myproject
 tmuxinator doctor
 
 # Verify YAML syntax
-ruby -ryaml -e "YAML.load_file('~/.tmuxinator/myproject.yml')"
+ruby -ryaml -e "YAML.load_file(File.expand_path('~/.tmuxinator/myproject.yml'))"
 
 # Test ERB processing
-ruby -rerb -ryaml -e "puts ERB.new(File.read('~/.tmuxinator/myproject.yml')).result"
+ruby -rerb -ryaml -e "puts ERB.new(File.read(File.expand_path('~/.tmuxinator/myproject.yml'))).result"
 ```
 
 ## Installation
