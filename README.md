@@ -11,6 +11,7 @@ This repository contains reusable skills that enhance AI agent capabilities. Ski
 | Skill | Description |
 |-------|-------------|
 | [conventional-commits](conventional-commits/) | Format commit messages using the Conventional Commits specification for automated tooling, changelog generation, and semantic versioning. |
+| [mikrotik-routeros](mikrotik-routeros/) | Configure and automate MikroTik RouterOS routers through the terminal, CLI, .rsc imports, scripts, Scheduler, Netwatch, firewall, NAT, DHCP, bridge, VLAN, routing, and backups. |
 | [proxmox-admin](proxmox-admin/) | Administer Proxmox VE hosts, create and manage KVM virtual machines with qm, manage LXC containers with pct, and configure storage, networking, and clusters via the CLI. |
 | [obsidian-daily](obsidian-daily/) | Manage Obsidian Daily Notes via obsidian-cli. Create, open, and append entries to daily notes, read past notes by date, and search vault content. |
 | [tmuxinator](tmuxinator/) | Create, edit, and debug tmuxinator project configurations for complex tmux session layouts and automated development environment startup. |
