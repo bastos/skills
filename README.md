@@ -16,6 +16,7 @@ This repository contains reusable skills that enhance AI agent capabilities. Ski
 | [obsidian-daily](obsidian-daily/) | Manage Obsidian Daily Notes via the official Obsidian CLI. Create, open, and append entries to daily notes, read past notes by date, and search vault content. |
 | [orbstack-cli](orbstack-cli/) | Drive OrbStack from the terminal on macOS: the orb/orbctl CLI for Linux VMs, Docker engine usage, .orb.local domains and networking, SSH, Kubernetes, config keys, and headless/CI automation. |
 | [proxmox-admin](proxmox-admin/) | Administer Proxmox VE hosts, create and manage KVM virtual machines with qm, manage LXC containers with pct, and configure storage, networking, and clusters via the CLI. |
+| [review-ios-ui-apple-hig](review-ios-ui-apple-hig/) | Review iOS app UI against Apple Human Interface Guidelines and iOS platform conventions using page-specific Apple reference notes. |
 | [sed](sed/) | Expert GNU sed one-liner generation for stream editing, in-place file editing, bulk find/replace, log filtering, and text transformation pipelines. |
 | [swift-review](swift-review/) | Review Swift/Xcode codebases, pull requests, local changes, or individual files against Swift best practices for style, API design, memory management, performance, and testing. |
 | [tmuxinator](tmuxinator/) | Create, edit, and debug tmuxinator project configurations for complex tmux session layouts and automated development environment startup. |

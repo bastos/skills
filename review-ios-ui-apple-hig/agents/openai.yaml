@@ -1,0 +1,4 @@
+interface:
+  display_name: "Review iOS UI with Apple HIG"
+  short_description: "Apple HIG-based iOS UI review"
+  default_prompt: "Use $review-ios-ui-apple-hig to review the current iOS UI against Apple Human Interface Guidelines."
