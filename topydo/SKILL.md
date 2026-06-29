@@ -44,10 +44,12 @@ With optional features:
 pip3 install 'topydo[columns,prompt,ical]'
 ```
 
-### apt (Ubuntu/Debian)
+### Linux (pipx preferred)
 ```bash
-sudo apt install python3-pip && pip3 install topydo
+pipx install topydo
 ```
+
+If `pipx` is unavailable, install it with your system package manager first, or use a Python virtual environment.
 
 ## Configuration
 
