@@ -1,0 +1,4 @@
+interface:
+  display_name: "Send to Minion"
+  short_description: "Delegate one prompt to one subagent"
+  default_prompt: "Use $send-to-minion to delegate this prompt to one subagent and return the verified result."
