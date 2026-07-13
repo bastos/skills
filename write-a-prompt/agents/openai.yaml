@@ -1,0 +1,4 @@
+interface:
+  display_name: "Write a Prompt"
+  short_description: "Turn rough requests into effective prompts"
+  default_prompt: "Use $write-a-prompt to turn this request or conversation into a copy-ready prompt."
