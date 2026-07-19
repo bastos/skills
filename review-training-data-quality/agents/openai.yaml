@@ -1,0 +1,4 @@
+interface:
+  display_name: "Review Training Data Quality"
+  short_description: "Audit label balance, ambiguity, and hard negatives"
+  default_prompt: "Use $review-training-data-quality to audit a labeled corpus before training."

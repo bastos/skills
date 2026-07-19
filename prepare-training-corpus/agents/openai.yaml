@@ -1,0 +1,4 @@
+interface:
+  display_name: "Prepare Training Corpus"
+  short_description: "Freeze and validate reproducible training data"
+  default_prompt: "Use $prepare-training-corpus to build and freeze a leakage-safe training corpus."

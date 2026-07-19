@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design Resumable Evaluation"
+  short_description: "Build resumable, fail-fast model evaluations"
+  default_prompt: "Use $design-resumable-model-evaluation to design a strict resumable model benchmark."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Package Private ML Artifacts"
+  short_description: "Package and verify private ML artifacts"
+  default_prompt: "Use $package-private-ml-artifacts to inventory and verify artifacts before a private upload."

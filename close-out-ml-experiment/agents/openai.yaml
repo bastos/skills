@@ -1,0 +1,4 @@
+interface:
+  display_name: "Close Out ML Experiment"
+  short_description: "Preserve evidence and conclude ML experiments"
+  default_prompt: "Use $close-out-ml-experiment to preserve evidence and record an honest experiment conclusion."

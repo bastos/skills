@@ -1,0 +1,4 @@
+interface:
+  display_name: "Audit Training Experiment"
+  short_description: "Verify experiment evidence and acceptance claims"
+  default_prompt: "Use $audit-training-experiment to verify an ML experiment and its claims against evidence."

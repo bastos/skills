@@ -1,0 +1,4 @@
+interface:
+  display_name: "Validate Structured Output"
+  short_description: "Validate structured model outputs and IDs"
+  default_prompt: "Use $validate-structured-model-output to validate model JSON or tool-call outputs."

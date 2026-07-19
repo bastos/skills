@@ -1,0 +1,4 @@
+interface:
+  display_name: "Compare Models Blindly"
+  short_description: "Run blinded, order-balanced model comparisons"
+  default_prompt: "Use $compare-models-blindly to compare model outputs without identity or order bias."

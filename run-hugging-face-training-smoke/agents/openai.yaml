@@ -1,0 +1,4 @@
+interface:
+  display_name: "Run HF Training Smoke"
+  short_description: "Safely run bounded Hugging Face training"
+  default_prompt: "Use $run-hugging-face-training-smoke to preflight and run one bounded private training smoke."

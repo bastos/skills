@@ -1,0 +1,4 @@
+interface:
+  display_name: "Verify Best Checkpoint"
+  short_description: "Prove best-checkpoint selection and reload"
+  default_prompt: "Use $select-and-verify-best-checkpoint to prove checkpoint selection and held-out reload identity."
