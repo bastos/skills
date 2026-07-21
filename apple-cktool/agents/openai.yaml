@@ -1,0 +1,4 @@
+interface:
+  display_name: "Apple cktool"
+  short_description: "Automate CloudKit with Apple’s macOS CLI"
+  default_prompt: "Use $apple-cktool to plan and execute a safe CloudKit schema or record workflow with the Xcode CLI."

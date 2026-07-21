@@ -1,0 +1,4 @@
+interface:
+  display_name: "Apple CKTool JS"
+  short_description: "Build typed CloudKit automation with CKTool JS"
+  default_prompt: "Use $apple-cktool-js to build a safe TypeScript CloudKit automation workflow for Node.js or the browser."

@@ -10,6 +10,8 @@ This repository contains reusable skills that enhance AI agent capabilities. Ski
 
 | Skill | Description |
 |-------|-------------|
+| [apple-cktool](apple-cktool/) | Automate CloudKit schema and test-data workflows with Apple's Xcode-bundled `cktool` CLI on macOS, including safe authentication, validation, reset, query, and deletion procedures. |
+| [apple-cktool-js](apple-cktool-js/) | Build typed CloudKit automation for Node.js, browsers, and CI with Apple's CKTool JS packages, Promise APIs, secure token injection, and guarded schema and record operations. |
 | [awk](awk/) | Expert GNU awk (gawk) one-liner generation and transformation for text field processing, column extraction, aggregation, CSV/TSV reformatting, and log analysis. |
 | [conventional-commits](conventional-commits/) | Format commit messages using the Conventional Commits specification for automated tooling, changelog generation, and semantic versioning. |
 | [mikrotik-routeros](mikrotik-routeros/) | Configure and automate MikroTik RouterOS routers through the terminal, CLI, .rsc imports, scripts, Scheduler, Netwatch, firewall, NAT, DHCP, bridge, VLAN, routing, and backups. |
