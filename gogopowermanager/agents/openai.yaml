@@ -1,0 +1,4 @@
+interface:
+  display_name: "Go Go Power Manager"
+  short_description: "Ship milestones with focused parallel workers"
+  default_prompt: "Use $gogopowermanager to coordinate and ship this milestone through focused parallel work."
