@@ -1,0 +1,4 @@
+interface:
+  display_name: "Unhobble Agent Context"
+  short_description: "Design lean, coherent agent context"
+  default_prompt: "Use $unhobble-agent-context to audit these instructions and propose a leaner context structure."

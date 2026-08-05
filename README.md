@@ -34,6 +34,7 @@ This repository contains reusable skills that enhance AI agent capabilities. Ski
 | [swift-review](swift-review/) | Review Swift/Xcode codebases, pull requests, local changes, or individual files against Swift best practices for style, API design, memory management, performance, and testing. |
 | [tmuxinator](tmuxinator/) | Create, edit, and debug tmuxinator project configurations for complex tmux session layouts and automated development environment startup. |
 | [topydo](topydo/) | Manage todo.txt tasks using topydo CLI. Add, list, complete, prioritize, tag, and organize tasks with dependencies, due dates, and recurrence. |
+| [unhobble-agent-context](unhobble-agent-context/) | Audit and redesign agent context across system prompts, repository guidance, skills, tools, memory, and references while preserving authority and safety boundaries. |
 | [validate-structured-model-output](validate-structured-model-output/) | Validate JSON or tool-call model outputs without repair across parsing, schema, identifiers, semantics, replay, and safety gates. |
 | [write-a-prompt](write-a-prompt/) | Create a copy-ready prompt from a rough request, source material, or the current conversation without performing the underlying task. |
 

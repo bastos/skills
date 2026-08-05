@@ -1,9 +1,9 @@
 ---
-name: rightsize-agent-context
+name: unhobble-agent-context
 description: Audits and designs lean, coherent context across system prompts, persistent instructions, repository guidance, skills, tool descriptions, memory, and references. Use for context engineering; creating, reviewing, simplifying, or reorganizing agent context; resolving conflicting, duplicated, bloated, stale, or misplaced guidance; designing progressive disclosure; or deciding where shared information should live.
 ---
 
-# Rightsize Agent Context
+# Unhobble Agent Context
 
 Shape persistent context so each task begins with the smallest coherent guidance it needs and can discover deeper material when relevant. Preserve local knowledge and hard boundaries; remove friction that does not change outcomes.
 
