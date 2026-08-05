@@ -1,0 +1,4 @@
+interface:
+  display_name: "Rightsize Agent Context"
+  short_description: "Design lean, coherent agent context"
+  default_prompt: "Use $rightsize-agent-context to audit these instructions and propose a leaner context structure."
