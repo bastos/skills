@@ -6,6 +6,42 @@ A collection of skills for AI agents.
 
 This repository contains reusable skills that enhance AI agent capabilities. Skills are modular, composable units that provide specialized knowledge and workflows for agents.
 
+## Install a Skill
+
+The open-source [`skills` CLI](https://github.com/vercel-labs/skills) runs directly through `npx`, so it does not require a separate global installation.
+
+Browse the skills in this repository:
+
+```sh
+npx skills add bastos/skills --list
+```
+
+Install interactively and choose a skill and detected agent:
+
+```sh
+npx skills add bastos/skills
+```
+
+To install a specific skill, pass its name from the table below. For example:
+
+```sh
+npx skills add bastos/skills --skill unhobble-agent-context
+```
+
+Installations are project-scoped by default. Add `--global` to make the skill available across projects and `--agent` to target a particular agent:
+
+```sh
+npx skills add bastos/skills --skill unhobble-agent-context --global --agent codex
+```
+
+Use `--yes` for a non-interactive installation. Verify global skills for an agent with:
+
+```sh
+npx skills list --global --agent codex
+```
+
+Review a skill's `SKILL.md`, scripts, and references before installing it because skills run with the agent's permissions. See the [CLI documentation](https://www.skills.sh/docs/cli) for supported sources, agents, and management commands.
+
 ## Skills
 
 | Skill | Description |
