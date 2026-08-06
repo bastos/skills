@@ -1,0 +1,4 @@
+interface:
+  display_name: "Technical Writer"
+  short_description: "Write clear technical content for any medium"
+  default_prompt: "Use $technical-writer to draft or revise this technical writing for its intended audience and medium."
