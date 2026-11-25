@@ -1,0 +1,4 @@
+interface:
+  display_name: "QQ (Quick Question)"
+  short_description: "Fast answers using read-only tools; changes nothing"
+  default_prompt: "Use $qq to answer this quickly: "

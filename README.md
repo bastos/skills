@@ -61,6 +61,7 @@ Review a skill's `SKILL.md`, scripts, and references before installing it becaus
 | [package-private-ml-artifacts](package-private-ml-artifacts/) | Inventory, hash, scan, and verify ML artifacts before an explicitly approved private upload. |
 | [prepare-training-corpus](prepare-training-corpus/) | Build deterministic train, validation, and test corpora with provenance, group-safe splits, manifests, hashes, and leakage checks. |
 | [proxmox-admin](proxmox-admin/) | Administer Proxmox VE hosts, create and manage KVM virtual machines with qm, manage LXC containers with pct, and configure storage, networking, and clusters via the CLI. |
+| [qq](qq/) | Answer a quick question directly and briefly, using any read-only tool, without changing files, sending messages, or asking clarifying questions. |
 | [review-ios-ui-apple-hig](review-ios-ui-apple-hig/) | Review iOS app UI against Apple Human Interface Guidelines and iOS platform conventions using page-specific Apple reference notes. |
 | [review-training-data-quality](review-training-data-quality/) | Audit training corpora for distribution collapse, ambiguity, context sufficiency, hard negatives, abstention behavior, leakage, and label defensibility. |
 | [run-hugging-face-training-smoke](run-hugging-face-training-smoke/) | Run a bounded private Hugging Face training smoke with immutable inputs, preflight checks, stop gates, checkpoint verification, and reproducible evidence. |
